@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Componentes|Props|VMOA</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <br />
+
+    <div id="aplicacion" class="container">
+      <contador nombre-clase="btn btn-info"></contador>
+      <contador nombre-clase="btn btn-danger"></contador>
+      <contador nombre-clase="btn btn-success"></contador>
+    </div>
+
+    <script type="text/javascript">
+      Vue.component("contador", {
+        data: function () {
+          return { count: 0 };
+        },
+        template:
+          '<button v-bind:class="nombreClase" v-on:click="count++"> Click {{count}} veces </button>',
+        props: {
+          nombreClase: String,
+        },
+      });
+
+      new Vue({
+        el: "#aplicacion",
+      });
+    </script>
+  </body>
+</html>
+
+<!-- <template>
+  <h1>Componentes en VUE</h1>
+  <hr>
+
+  <card url="https://cdn.svgporn.com/logos/vue.svg" nombre="Vue.js"/>
+  <card url="https://cdn.svgporn.com/logos/vuetifyjs.svg" nombre="Vuetify"/>
+  <card url="https://cdn.svgporn.com/logos/angular-icon.svg" nombre="Angular"/>
+  <card url="https://cdn.svgporn.com/logos/react.svg" nombre="React"/>
+</template>
+
+<script>
+  import Card from "./components/Card.vue";
+
+  export default{
+    components: { Card },
+  };
+</script> -->
