@@ -1,47 +1,56 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
-import TheWelcome from './components/TheWelcome.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="./assets/logo.svg" width="125" height="125" />
+  <div>
+    <h1>Directivas en VUE.js</h1>
+    <hr />
+    <h2>v-text</h2>
+    <span v-text="'Hola desde VUE.js'"></span>
+    <br />
+    <span>Hola desde VUE.js</span>
+    <br />
+    <span v-text="titulo"></span>
+    <br />
+    <span>Con IT: {{ titulo }}</span>
+    <hr />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-    </div>
-  </header>
+    <h2>v-html</h2>
+    <h3 v-html="html"></h3>
+    <hr />
 
-  <main>
-    <TheWelcome />
-  </main>
+    <h2>v-show</h2>
+    <h3>Tu edad es: {{ edad }}</h3>
+    <h2 v-show="edad >= 18">Eres mayor de edad</h2>
+    <h2 v-show="edad < 18">Eres menor de edad</h2>
+
+    <button @click="agre()">Agregar edad</button>
+    <button @click="quit()">Quitar edad</button>
+    <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+  </div>
 </template>
-
+<script>
+export default {
+  data: () => ({
+    titulo: "Hola desde VUE.js 3",
+    html: "<b>Soy una b, dentro de un h3</b>",
+    edad: 16,
+  }),
+  methods: {
+    agre() {
+      this.edad++;
+    },
+    quit() {
+      this.edad--;
+      s;
+    },
+  },
+};
+</script>
 <style scoped>
-header {
-  line-height: 1.5;
+div {
+  text-align: center;
+  margin: 0px 2rem;
 }
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
+h2 {
+  color: tomato;
+  font-size: 2rem;
 }
 </style>
